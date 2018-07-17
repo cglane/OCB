@@ -1,0 +1,52 @@
+{% load i18n %}
+{% load category_tags %}
+
+<footer class="footer container">
+    {% block footer %}
+    <div class="col-md-4">
+        <h5>Main Menu</h5>
+        <hr>
+            <ul class="footer-ul">
+                    <li>
+                                <a href="/en-us/about">About</a>
+                            </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            {% if num_unread_notifications > 0 %}
+                                {# If user has new notifications - we change account link to go to inbox #}
+                                <a href="{% url 'customer:notifications-inbox' %}">
+                                    {% trans "Account" %}
+                                    <span class="label label-important">{{ num_unread_notifications }}</span>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'customer:summary' %}"> {% trans "Account" %}</a>
+                            {% endif %}
+                        </li>
+                        {% if user.is_staff or perms.partner.dashboard_access %}
+                            <li><a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a></li>
+                        {% endif %}
+                        <li><a id="logout_link" href="{% url 'customer:logout' %}"> {% trans "Logout" %}</a></li>
+                    {% else %}
+                        <li><a id="login_link" href="{% url 'customer:login' %}"> {% trans "Login or register" %}</a></li>
+                    {% endif %}
+                </ul>
+    </div>
+    <div class="col-md-4 col-6 footer-about-us">
+            <h5>About Us</h5>
+            <hr>
+            <p>"From the original idea and design thirty years ago, we have refined our bed swing to give you the most comfortable, functional and finest porch bed swing available."</p>
+            <br>
+            <p>-Original Charleston Bedswing Co.</p>
+    </div>
+
+    <div class="col-md-4">
+            <h5>Contact</h5>
+            <hr>
+            <h6>Email</h6>
+            <p>bstone443@gmail.com</p>
+            <br>
+            <h6>Phone</h6>
+            <h7>(843) 224-1584</h7>
+    </div>
+    {% endblock %}
+</footer>

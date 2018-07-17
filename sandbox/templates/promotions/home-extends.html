@@ -1,0 +1,149 @@
+{% extends "layout_2_col.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block navigation %}
+    {% include "partials/nav_primary.html" with expand_dropdown=1 %}
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block column_left %}
+{% endblock %}
+
+{% block content %}
+
+<div class="landing-page">
+   <div class="row justify-content-end">
+       <!--Main Image-->
+       <div class="col-12 main-image">
+           <img src="{% static "" %}images/{{ main_image.img }}"/>
+           {% if main_image.caption %}
+               <p class="col-12 col-md-8">
+                   {{ main_image.caption }}
+               </p>
+
+           {% endif %}
+       </div>
+   </div>
+
+    <!--Image Blocks-->
+    <div class="row image-blocks justify-content-md-center">
+
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12 col-md-6 img-div">
+                    <img src="{% static "" %}images/{{images.0.img}}"/>
+                    {% if images.0.caption %}
+                        <p>{{ images.0.caption }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-12 col-md-6 img-div">
+                    <img src="{% static "" %}images/{{images.1.img}}"/>
+                    {% if images.1.caption %}
+                        <p>{{ images.1.caption }}</p>
+                    {% endif %}
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-12 img-div">
+                    <img src="{% static "" %}images/{{images.2.img}}"/>
+                    {% if images.2.caption %}
+                        <p>{{ images.2.caption }}</p>
+                    {% endif %}
+            </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12 img-div">
+                    <img src="{% static "" %}images/{{images.3.img}}"/>
+                    {% if images.3.caption %}
+                        <p>{{ images.3.caption }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 img-div">
+                <img src="{% static "" %}images/{{images.4.img}}"/>
+                    {% if images.4.caption %}
+                        <p>{{ images.4.caption }}</p>
+                    {% endif %}
+            </div>
+            <div class="col-12 col-md-6 img-div">
+                <img src="{% static "" %}images/{{images.5.img}}"/>
+                    {% if images.5.caption %}
+                        <p>{{ images.5.caption }}</p>
+                    {% endif %}
+            </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+	    <!--Options-->
+   <div class="row fabric-options justify-content-md-center">
+       <div class="col-12 text-center options-header">
+           <h1>Cushions and Pillows</h1>
+            <p>
+                "OUR CUSHIONS ARE MADE USING RETICULATED FIBER. THIS FIBER HAS OPEN PORES THAT ALLOW WATER AND AIR TO FLOW EASILY THROUGH THEM. THE CUSHIONS ARE COVERED IN OUTDURA PERFORMANCE FABRIC . IT IS FADE, MOISTURE AND STAIN RESISTANT. IT IS VERY EASY TO CLEAN. THE FABRIC IS WOVEN TO FEEL IDENTICAL TO INTERIOR FURNITURE UPHOLSTERY AND FINISHED TO GIVE YOU THE SAME SOFTNESS YOU EXPECT IN A SOFA.YOU WILL LOVE THE COMFORT YOU ARE ENVELOPED IN WHEN YOU RELAX ON YOUR BED SWING."
+
+            </p>
+       </div>
+       {% for option in fabric_options %}
+          <div class="col-12 col-sm options-block">
+             <img src="{% static "" %}images/{{option.img}}" />
+             <p>{{option.caption }}</p>
+              <div class="options-links">
+                  <a href="/fabrics">
+                   <span>Learn More</span>
+                  </a>
+                  <br>
+                  <span>-OR-</span>
+                  <br>
+                  <a href="/catalogue/category/cushions-pillows_10/">
+                   <span>Shop Cushions</span>
+               </a>
+
+              </div>
+          </div>
+       {% endfor %}
+    </div>
+   <div class="row bedswing-options justify-content-md-center">
+       <div class="col-12 text-center options-header">
+           <h1>Bedswings</h1>
+           <p>
+           "ORIGINAL CHARLESTON BEDSWING® MAKES TWO STYLES AND THEY DIFFER ONLY IN SIZE. WE LIMIT OUR OFFERINGS TO JUST THESE TWO STYLES SIMPLY BECAUSE WE FEEL THIS CONFIGURATION WITH ITS LOOK AND FEEL IS THE BEST. FOR READING, DRINKING BEERS WITH FAMILY AND FRIENDS, RELAXING AFTER A HARD DAY’S WORK, ROCKING BABIES TO SLEEP, AND NAPS. THERE ARE SO MANY WAYS TO ENJOY THIS SWING!"
+           </p>
+       </div>
+       {% for option in bedswing_options %}
+          <div class="col-12 col-sm options-block">
+             <img src="{% static "" %}images/{{option.img}}" />
+             <p>{{option.caption }}</p>
+              <div class="options-links">
+                  <a href="/en-us/catalogue/category/mini-bedswing_9/">
+                    <span>Shop Mini Bedswings</span>
+                 </a>
+                  <br>
+                  <span>-OR-</span>
+                  <br>
+                <a href="/catalogue/category/original-bedswing_8/">
+                 <span>Shop Original Bedswings</span>
+                </a>
+              </div>
+          </div>
+       {% endfor %}
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{% if quantity == 1 %}
+    {% blocktrans with title=product.get_title %}
+    <strong>{{ title }}</strong> has been added to your basket.
+    {% endblocktrans %}
+{% else %}
+    {% blocktrans with title=product.get_title quantity=quantity %}
+    <strong>{{ quantity }}</strong> copies of <strong>{{ title }}</strong>
+    have been added to your basket.
+    {% endblocktrans %}
+{% endif %}
+{% if product.product_class.name == 'Original Bedswing' or product.product_class.name == 'Mini Bedswing' %}
+<a href="/en-us/catalogue/category/cushions-pillows_10/">Don't forget Pillows and Cushions!</a>
+{% endif %}

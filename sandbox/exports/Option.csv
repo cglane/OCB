@@ -1,0 +1,16 @@
+id,name,code,type
+12,Solid Fabrics #1,solid-fabrics-1,Optional
+11,Piping for Cushions and Pillows,piping-for-cushions-and-pillows,Optional
+13,Solid Fabrics #2,solid-fabrics-2,Required
+14,Jaquards Fabrics,jaquards-fabrics,Required
+15,Striped Fabrics,striped-fabrics,Required
+17,Ceiling Height,ceiling-height,Required
+18,Solid Fabrics #3,solid-fabrics-3,Required
+19,Custom Color,custom-color,Required
+20,Bedswing Size,bedswing-size,Required
+21,Fabric Name &  Number,fabric-name-number,Required
+22,Solid Fabrics #1 Piping,solid-fabrics-1-piping,Required
+23,Jaquards Fabrics Piping,jaquards-fabrics-piping,Required
+24,Striped Fabrics Piping,striped-fabrics-piping,Required
+25,Solid Fabrics #3 Piping,solid-fabrics-3-piping,Required
+26,Solid Fabrics #2 Piping,solid-fabrics-2-piping,Required

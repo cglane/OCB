@@ -1,0 +1,109 @@
+id,code,name,category,email_subject_template,email_body_template,email_body_html_template,sms_template,date_created,date_updated
+2,ORDER_STATUS_CHANGE,Order Status Change,Order related,{% load i18n %}{% blocktrans with number=order.number %}Order status change {{ number }}{% endblocktrans %},null,"{% extends ""customer/emails/base.html"" %}
+{% load currency_filters i18n %}
+
+{% block body %}<p xmlns=""http://www.w3.org/1999/html"">{% trans 'Hello,' %}</p>
+
+<p>{% blocktrans with order_number=order.number %}We are pleased to confirm the order {{ order_number }} has been updated{% endblocktrans %}</p>
+
+<p>Supplier: {{ line.partner.name }} </p>
+<p>Record: {{ line.stockrecord }} </p>
+<p>New Status: {{ line.status }} </p>
+{% endblock %}",,2017-11-01 00:37:40.926695+00:00,2017-11-06 14:22:35.172958+00:00
+3,ORDER_PLACED_SUPPLIER,Order Placed Supplier,Order related,{% load i18n %}{% blocktrans with number=order.number %} New Order from Original Charleston Bedswing: {{ number }}{% endblocktrans %},null,"{% extends ""customer/emails/base.html"" %}
+{% load currency_filters i18n %}
+
+{% block body %}<p xmlns=""http://www.w3.org/1999/html"">{% trans 'Hello,' %}</p>
+
+<p>{% blocktrans with order_number=order.number %}We are writing to inform you of a recent  order: {{ order_number }} has been received.{% endblocktrans %}</p>
+
+<p>The order contains</p>
+
+ <li>{{ line.description }} Type: {{line.product.product_class.name}} - {%  trans 'quantity:' %} {{ line.quantity }}</li>
+<p>Shipping Address:</p>
+<p>{% for field in order.shipping_address.active_address_fields %}  {{ field }}<br/>
+{% endfor %}</p>
+
+<p>Please update the order status as ‘Received’ by clicking the following link <a href=""{{ received_url }}"" title=""order status"">here</a></p>
+<p>Please updated the order status to ‘Shipped’ by clicking the following link <a href=""{{ shipped_url }}"" title=""order status"">here</a>
+</p>
+{% endblock %}",,2017-11-01 12:52:43.421786+00:00,2018-01-23 19:09:34.082666+00:00
+1,ORDER_PLACED,Customer Order Placed,Order related,{% load i18n %}{% blocktrans with number=order.number %}Confirmation of order {{ number }}{% endblocktrans %},"{% load currency_filters i18n %}{% blocktrans with order_number=order.number %}Hello,
+
+We are pleased to confirm your order {{ order_number }} has been received and
+will be processed shortly.{% endblocktrans %}
+
+{% trans 'Your order contains:' %}
+
+{% for line in order.lines.all %} * {{ line.title }} - {%  trans 'quantity:' %} {{ line.quantity }} - {% trans 'price:' %} {{ line.line_price_incl_tax|currency:order.currency }}
+{% endfor %}
+{% trans 'Basket total:' %} {{ order.basket_total_incl_tax|currency:order.currency }}
+{% trans 'Shipping:' %} {{ order.shipping_incl_tax|currency:order.currency }}
+{% trans 'Order Total:' %} {{ order.total_incl_tax|currency:order.currency }}
+
+{% trans 'Shipping address:' %}
+
+{% for field in order.shipping_address.active_address_fields %}  {{ field }}
+{% endfor %}
+
+{% if status_url %}
+{% blocktrans %}You can view the status of this order at the below URL:
+{{ status_url }}{% endblocktrans %}
+{% endif %}
+
+{% blocktrans %}The Original Charleston Bedswing{% endblocktrans %}","{% extends ""customer/emails/base.html"" %}
+{% load currency_filters i18n %}
+
+{% block body %}<p xmlns=""http://www.w3.org/1999/html"">{% trans 'Hello,' %}</p>
+
+<p>{% blocktrans with order_number=order.number %}We are pleased to confirm your order {{ order_number }} has been received and
+will be processed shortly.{% endblocktrans %}</p>
+
+<p>{% trans 'Your order contains:' %}</p>
+
+<ul>
+    {% for line in order.lines.all %}
+    <li>{{ line.description }} Type: {{line.product.product_class.name}} - {%  trans 'quantity:' %} {{ line.quantity }} - {% trans 'price:' %} {{ line.line_price_incl_tax|currency:order.currency }}
+</li>
+    {% endfor %}
+</ul>
+<p>
+{% trans 'Basket total:' %} {{ order.basket_total_incl_tax|currency:order.currency }}<br/>
+{% trans 'Shipping:' %} {{ order.shipping_incl_tax|currency:order.currency }}<br/>
+{% trans 'Order Total:' %} {{ order.total_incl_tax|currency:order.currency }}
+</p>
+
+<p>{% trans 'Shipping address:' %}</p>
+<p>{% for field in order.shipping_address.active_address_fields %}  {{ field }}<br/>
+{% endfor %}</p>
+
+{% if status_url %}
+<p>{% blocktrans %}You can view the status of this order by clicking <a href=""{{ status_url }}"" title=""order status"">here</a>{% endblocktrans %}</p>
+{% endif %}{% endblock %}",,2017-10-26 16:56:30.168705+00:00,2017-11-06 14:20:23.565480+00:00
+4,ORDER_PLACED_BEDSWING,Order Placed Bedswing,Order related,{% load i18n %}{% blocktrans with number=order.number %}Confirmation of order {{ number }}{% endblocktrans %},null,"{% extends ""customer/emails/base.html"" %}
+{% load currency_filters i18n %}
+
+{% block body %}<p xmlns=""http://www.w3.org/1999/html"">Hello Admin, </p>
+
+<p>{% blocktrans with order_number=order.number %}We are pleased to confirm a new order {{ order_number }} has been received {% endblocktrans %}</p>
+
+<p>The order contains</p>
+
+<ul>
+    {% for line in order.lines.all %}
+    <li>{{ line.description }} Type: {{line.product.product_class.name}} - {%  trans 'quantity:' %} {{ line.quantity }} - {% trans 'price:' %} {{ line.line_price_incl_tax|currency:order.currency }}</li>
+    {% endfor %}
+</ul>
+<p>
+{% trans 'Basket total:' %} {{ order.basket_total_incl_tax|currency:order.currency }}<br/>
+{% trans 'Shipping:' %} {{ order.shipping_incl_tax|currency:order.currency }}<br/>
+{% trans 'Order Total:' %} {{ order.total_incl_tax|currency:order.currency }}
+</p>
+
+<p>{% trans 'Shipping address:' %}</p>
+<p>{% for field in order.shipping_address.active_address_fields %}  {{ field }}<br/>
+{% endfor %}</p>
+
+{% if status_url %}
+<p>{% blocktrans %}You can view the status of this order by clicking <a href=""{{ status_url }}"" title=""order status"">here</a>{% endblocktrans %}</p>
+{% endif %}{% endblock %}",,2017-11-01 13:18:09.866643+00:00,2018-02-15 22:02:15.400267+00:00

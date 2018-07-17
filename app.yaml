@@ -1,0 +1,16 @@
+# [START runtime]
+runtime: python
+env: flex
+service: default
+entrypoint:  gunicorn -b :$PORT -c gunicorn.conf.py wsgi
+manual_scaling:
+  instances: 1
+beta_settings:
+    cloud_sql_instances: brave-standard-180615:us-east1:bedswing 
+runtime_config:
+  python_version: 3
+resources:
+ cpu: 1
+ memory_gb: 2.0
+ disk_size_gb: 10
+# [END runtime]

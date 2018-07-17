@@ -1,0 +1,38 @@
+{% extends "layout_2_col.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% static "" as baseUrl %}
+
+{% block navigation %}
+    {% include "partials/nav_primary.html" with expand_dropdown=1 %}
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block column_left %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+		<div class="row justify-content-md-center about-page">
+		<div class="col-12 col-md-4 text-center">
+			<img src="{% static "" %}images/{{image}}" />
+		</div>
+		<div class="col-12 col-md-4 text-center">
+			<p>
+				The Original Charleston Bedswing® is all about relaxation and fun. Porches, especially in the South, are the preferred venue for enjoying a cold glass of sweet tea, long talks with loved ones, reading a good book, and lazy afternoon naps. They act as the intermediary between the outside world and the intimate life of the home.
+
+Wanting to make our porch more inviting and comfortable for friends and family, I built the first Bedswing. In the beginning I made each bed swing by hand, giving them to friends and loved ones as gifts. As word spread and demand grew, it became clear that I would need to hand over production to someone else. Producing the swings anywhere but locally was not an option.
+
+After enlisting several local wood shops with varying success, I met Pat Withers and knew I did not need to search any further. I work closely with Pat and his employees at Withers Industries to ensure each bed swing is of the same quality as the first one I built so many years ago. The quality is unbeatable.
+
+Lean back in one and it becomes clear that every porch deserves an Original Charleston Bedswing®.
+			</p>
+		</div>
+
+
+	</div>
+</div>
+
+{% endblock content %}

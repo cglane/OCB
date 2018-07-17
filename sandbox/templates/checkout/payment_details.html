@@ -1,0 +1,20 @@
+{% extends 'oscar/checkout/payment_details.html' %}
+{% load i18n %}
+
+{% block payment_details %}
+
+    <div class="well text-center">
+        <form action="{% url 'checkout:payment-details' %}" method="POST">
+            <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="{{ stripe_key }}"
+                data-amount="{{ total }}"
+                data-name="Original Charleston Bedswing"
+                data-description="Payment"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+            </script>
+        </form>
+    </div>
+
+{% endblock %}

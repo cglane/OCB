@@ -1,0 +1,32 @@
+{% extends "layout_2_col.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+{% for group in fabric_options %}
+<div class="container-fluid">
+        <div class="sub-header">
+        <h2 class="text-center">{{group.name}}</h2>
+    </div>
+    <div class="fabric-group">
+    {% for option in group.options %}
+        {% if option.image and option.image.url %}
+
+        <div class="mdl-card ">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{ option.option }}</h2>
+          </div>
+          <div class="mdl-card__media">
+                  <img  src="{{ option.image.url }}"  border="0"   alt="">
+          </div>
+        </div>
+        {% endif %}
+
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+  {% endfor %}
+{% endblock %}
+

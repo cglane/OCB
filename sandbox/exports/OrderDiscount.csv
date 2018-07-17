@@ -1,0 +1,5 @@
+id,order,category,offer_id,offer_name,voucher_id,voucher_code,frequency,amount,message
+3,25,Basket,2,Offer for coupon 'Trade discount',2,SPECIAL533,1,597.40,
+4,26,Basket,2,Offer for coupon 'Trade discount',2,SPECIAL533,1,222.24,
+6,62,Basket,2,Offer for coupon 'Trade discount',2,SPECIAL533,1,875.20,
+7,63,Basket,2,Offer for coupon 'Trade discount',2,SPECIAL533,1,857.60,

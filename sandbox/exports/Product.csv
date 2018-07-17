@@ -1,0 +1,19 @@
+id,structure,upc,parent,title,slug,description,product_class,rating,date_created,date_updated,is_discountable,categories,product_options
+43,standalone,31,,Clear Coat Mahogany,clear-coat-mahogany,,14,,2017-11-02 16:20:58.362768+00:00,2017-12-29 01:03:13.785384+00:00,True,[9],[17]
+42,standalone,20,,Clear Coat Mahogany,clear-coat-mahogany,,6,,2017-11-02 16:19:47.481837+00:00,2017-12-29 01:02:50.177639+00:00,True,[8],[17]
+41,standalone,,,Custom Color,custom-color,,14,,2017-10-09 20:31:53.609144+00:00,2017-12-29 00:51:49.722434+00:00,True,[9],"[17, 19]"
+40,standalone,,,Painted Black,painted-cypress-black,,14,,2017-10-09 20:29:15.195028+00:00,2018-02-16 16:05:06.290569+00:00,True,[9],[17]
+39,standalone,,,Painted White,painted-cypress-white,,14,,2017-10-09 20:27:04.176964+00:00,2018-02-16 16:05:54.164659+00:00,True,[9],[17]
+38,standalone,,,Clear Coat Cypress,clear-coat-cypress,,14,,2017-10-09 20:25:14.751373+00:00,2017-12-29 01:04:05.793312+00:00,True,[9],[17]
+36,standalone,19,,Mahogany Finish,mahogany-finish,,14,,2017-10-09 20:18:59.077953+00:00,2017-12-29 01:07:38.974296+00:00,True,[9],[]
+35,standalone,18,,Jacquards Fabrics,jacquards-fabrics,<p>There are 20+ fabric options</p>,13,,2017-10-09 20:15:21.722962+00:00,2018-02-17 10:57:59.892582+00:00,True,[10],"[14, 20, 23]"
+33,standalone,17,,Striped Fabrics,striped-fabrics,<p>There are 20+ fabric options</p>,13,,2017-10-09 20:12:58.046121+00:00,2018-02-17 10:58:28.712686+00:00,True,[10],"[15, 20, 24]"
+32,standalone,16,,Solid Fabrics #3,solid-fabrics-3,<p>There are 20+ fabric options</p>,13,,2017-10-09 19:48:40.068597+00:00,2018-02-17 10:58:57.068498+00:00,True,[10],"[18, 20, 25]"
+31,standalone,15,,Solid Fabrics #2,solid-fabrics-2,<p>There are 20+ fabric options</p>,13,,2017-10-09 19:47:05.322210+00:00,2018-02-17 10:59:48.279584+00:00,True,[10],"[13, 20, 26]"
+30,standalone,14,,C.O.M,com,,13,,2017-10-09 19:43:22.579221+00:00,2018-02-17 11:00:51.877050+00:00,True,[10],"[11, 20, 21]"
+29,standalone,13,,Custom Color,custom-color,,6,,2017-10-09 19:40:37.409187+00:00,2017-12-29 00:54:47.255583+00:00,True,[8],"[17, 19]"
+28,standalone,12,,Painted  Black,painted-cypress-black,,6,,2017-10-09 19:38:33.594244+00:00,2017-12-29 01:06:36.192222+00:00,True,[8],[17]
+27,standalone,11,,Painted White,painted-cypress-white,,6,,2017-10-09 19:37:12.230886+00:00,2017-12-29 01:07:08.989299+00:00,True,[8],[17]
+25,standalone,10,,Clear Coat Cypress,clear-coat-cypress,,6,,2017-10-09 19:31:01.645232+00:00,2017-12-29 01:03:35.313356+00:00,True,[8],[17]
+24,standalone,1,,Solid Fabrics #1,solid-fabrics-1,,13,,2017-10-06 21:17:32.309520+00:00,2018-02-17 11:06:24.590243+00:00,True,[10],"[12, 20, 22]"
+21,standalone,2,,Mahogany Finish,mahogany-finish,,6,,2017-10-04 20:51:40.295223+00:00,2017-12-29 01:08:22.017205+00:00,True,[8],[17]

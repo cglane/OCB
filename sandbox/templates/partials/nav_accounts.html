@@ -1,0 +1,109 @@
+{% load i18n %}
+{% load currency_filters %}
+{% load category_tags %}
+
+<div id="top_page" class="navbar navbar-default navbar-static-top accounts">
+    {# This is used in mobile view #}
+    <div class="navbar-header mobile-header-one hide-mobile">
+        <a class="float-left logo-mobile "href="{{homepage_url}}"><img src="{{ STATIC_URL }}images/logo-small.png" alt=""></a>
+        <a class="btn btn-default navbar-toggle collapsed hamburger-nav" data-toggle="collapse" data-target=".account-collapse">
+            <i class="material-icons">menu</i>
+        </a>
+    </div>
+
+    <div class="navbar-collapse account-collapse collapse">
+        <div class="container-fluid">
+            {% if LANGUAGES|length > 1 %}
+                <form id="language_selector" class="navbar-left navbar-form" action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ language_neutral_url_path }}" />
+                    <div class="form-group">
+                        <select name="language" class="form-control">
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE%} selected="selected"{% endif %}>
+                                    {{ language.name_local }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button class="btn btn-default" type="submit" data-loading-text="{% trans 'Submitting...' %}">{% trans "Go" %}</button>
+                </form>
+            {% endif %}
+            <ul class="nav navbar-nav visible-md visible-lg">
+                <li class="logo">
+                        <a href="{{homepage_url}}"><img src="{{ STATIC_URL }}images/logo-small.png" alt=""></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>            
+                        {% block nav_dropdown %}
+                            <ul id="browse" class="nav navbar-nav">
+                                <li class="dropdown active {% if expand_dropdown %}open{% endif %}">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        {% trans "Browse store" %}
+                                    </a>
+                                    <ul class="dropdown-menu " data-navigation="dropdown-menu">
+                                        {% category_tree depth=2 as tree_categories %}
+                                        <li><a tabindex="-1" href="{% url 'catalogue:index' %}">{% trans "All products" %}</a></li>
+                                        {% if tree_categories %}
+                                            {% for tree_category, info in tree_categories %}
+                                                {% if info.has_children %}
+                                                    <li class="dropdown-submenu">
+                                                        <a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+                                                        <ul class="dropdown-menu ">
+                                                        {% else %}
+                                                            <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }} </a></li>
+                                                        {% endif %}
+            
+                                                        {% for close in info.num_to_close %}
+                                                            </ul></li>
+                                                        {% endfor %}
+                                            {% endfor %}
+                                        {% endif %}
+                                        {% block nav_dropdown_extra_items %}
+                                            <li><a href="{% url 'offer:list' %}">{% trans "Offers" %}</a></li>
+                                        {% endblock %}
+                                    </ul>
+                                </li>
+                                {% block nav_extra %}
+                                {% endblock %}
+                            </ul>
+                        {% endblock %}
+                        <li>
+                            <a href="/en-us/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/en-us/fabrics/">Fabric Options</a>
+                        </li>
+                        <li>
+                            <a href="/en-us/faqs">FAQs</a>
+                        </li>
+
+                {% if user.is_authenticated %}
+                    <li>
+                        {% if num_unread_notifications > 0 %}
+                            {# If user has new notifications - we change account link to go to inbox #}
+                            <a href="{% url 'customer:notifications-inbox' %}">
+                                {% trans "Account" %}
+                                <span class="label label-important">{{ num_unread_notifications }}</span>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'customer:summary' %}"> {% trans "Account" %}</a>
+                        {% endif %}
+                    </li>
+                    {% if user.is_staff or perms.partner.dashboard_access %}
+                        <li><a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a></li>
+                    {% endif %}
+                    <li><a id="logout_link" href="{% url 'customer:logout' %}"> {% trans "Logout" %}</a></li>
+                {% else %}
+                    <li><a id="login_link" href="{% url 'customer:login' %}"> {% trans "Login or register" %}</a></li>
+                {% endif %}
+                <li>
+                        {% block mini_basket %}{% include "partials/mini_basket.html" %}{% endblock %}
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
