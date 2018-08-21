@@ -36,7 +36,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>            
+                <li>
                         {% block nav_dropdown %}
                             <ul id="browse" class="nav navbar-nav">
                                 <li class="dropdown active {% if expand_dropdown %}open{% endif %}">
@@ -55,7 +55,7 @@
                                                         {% else %}
                                                             <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }} </a></li>
                                                         {% endif %}
-            
+
                                                         {% for close in info.num_to_close %}
                                                             </ul></li>
                                                         {% endfor %}
@@ -71,13 +71,13 @@
                             </ul>
                         {% endblock %}
                         <li>
-                            <a href="/en-us/about">About</a>
+                            <a href="/about">About</a>
                         </li>
                         <li>
-                            <a href="/en-us/fabrics/">Fabric Options</a>
+                            <a href="/fabrics/">Fabric Options</a>
                         </li>
                         <li>
-                            <a href="/en-us/faqs">FAQs</a>
+                            <a href="/faqs">FAQs</a>
                         </li>
 
                 {% if user.is_authenticated %}

@@ -76,7 +76,7 @@ class Driver(unittest.TestCase):
 
 	def checkout(self, user, total):
 		# Checkout Now
-		self.driver.get('http://localhost:8000/en-us/checkout/')
+		self.driver.get('http://localhost:8000/checkout/')
 		time.sleep(2)
 		# Checkout as guest
 		self.driver.find_element_by_id("id_username").send_keys(user['username'])
@@ -133,7 +133,7 @@ class Driver(unittest.TestCase):
 		self.driver.quit()
 	def test_add_basket(self):
 		## As a logout new user
-		self.driver.get("http://localhost:8000/en-us/catalogue/category/mini-bedswing_9/")
+		self.driver.get("http://localhost:8000/catalogue/category/mini-bedswing_9/")
 
 		#Navigate to Clear Mahogany
 		self.driver.find_element_by_link_text('Clear Coat Mahogany').click()
@@ -145,7 +145,7 @@ class Driver(unittest.TestCase):
 
 
 		## Navigate to Stripe Fabrics
-		self.driver.get("http://localhost:8000/en-us/catalogue/striped-fabrics_33/")
+		self.driver.get("http://localhost:8000/catalogue/striped-fabrics_33/")
 		self.driver.find_element_by_xpath("//select[@name='striped-fabrics']/option[text()='{0}']"
 										  .format(self.options['striped-fabric']))\
 											.click()
@@ -166,7 +166,7 @@ class Driver(unittest.TestCase):
 
 	def test_add_basket_two(self):
 		## As a logout new user
-		self.driver.get("http://localhost:8000/en-us/catalogue/custom-color_29/")
+		self.driver.get("http://localhost:8000/catalogue/custom-color_29/")
 
 		# Navigate to Clear Mahogany
 		self.driver.find_element_by_xpath("//select[@name='ceiling-height']/option[text()='{0}']"
@@ -177,7 +177,7 @@ class Driver(unittest.TestCase):
 		self.driver.find_element_by_class_name("btn-add-to-basket").click()
 
 		## Navigate to Stripe Fabrics
-		self.driver.get("http://localhost:8000/en-us/catalogue/solid-fabrics-2_31/")
+		self.driver.get("http://localhost:8000/catalogue/solid-fabrics-2_31/")
 		self.driver.find_element_by_xpath("//select[@name='solid-fabrics-2']/option[text()='{0}']"
 										  .format(self.options_two['fabric'])) \
 			.click()
@@ -198,7 +198,7 @@ class Driver(unittest.TestCase):
 	def test_add_basket_three(self):
 
 		## Navigate to  Fabrics
-		self.driver.get("http://localhost:8000/en-us/catalogue/com_30/")
+		self.driver.get("http://localhost:8000/catalogue/com_30/")
 		self.driver.find_element_by_xpath("//select[@name='piping-for-cushions-and-pillows']/option[text()='{0}']"
 										  .format(self.options_three['piping'])) \
 			.click()
@@ -217,7 +217,7 @@ class Driver(unittest.TestCase):
 	def test_add_basket_four(self):
 
 		## Navigate to  Fabrics
-		self.driver.get("http://localhost:8000/en-us/catalogue/com_30/")
+		self.driver.get("http://localhost:8000/catalogue/com_30/")
 		self.driver.find_element_by_xpath("//select[@name='piping-for-cushions-and-pillows']/option[text()='{0}']"
 										  .format(self.options_three['piping'])) \
 			.click()
