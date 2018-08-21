@@ -38,7 +38,7 @@ else:
     DOMAIN = 'https://originalcharlestonbedswing.com/'
 
 MASTER_EMAIL = 'charleslane23@gmail.com'
-ADMIN_EMAIL_ADDRESS = 'bstone443@gmail.com'
+ADMIN_EMAIL_ADDRESS = 'charleslane23@gmail.com'
 
 EMAIL_HOST = 'smtpout.secureserver.net'
 EMAIL_HOST_USER = 'info@originalcharlestonbedswing.com'
@@ -50,7 +50,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 MANAGERS = ADMINS
 SHOW_TAX_CHECKOUT = True
 
-if DEBUG == True:
+if DEBUG == False:
     STRIPE_SECRET_KEY = os.environ.get('BEDSWING_STRIPE_SECRET_KEY')
     STRIPE_PUBLIC_KEY = os.environ.get('BEDSWING_STRIPE_PUBLIC_KEY')
 else:
@@ -227,7 +227,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
