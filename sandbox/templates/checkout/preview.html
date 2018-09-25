@@ -1,11 +1,15 @@
 {% extends 'oscar/checkout/preview.html' %}
 {% load currency_filters %}
 {% load i18n %}
-
+{% block  checkout_title %}
+    {% trans "Preview order" %}
+    <h3 style="color: red;">You must click the 'Place Order' button for the transaction to be complete!</h3>
+{% endblock %}
 {% block payment_method %}
-    <div class="span6">
+    <div class="span6 ">
     <div class="sub-header">
         <h2>{% trans "Payment" %}</h2>
+
     </div>
     <div class="well well-success">
         <p>{% blocktrans with amount=order_total.incl_tax|currency %}<strong>{{ amount }}</strong> will be debited from your bankcard.{% endblocktrans %}</p>
@@ -15,7 +19,6 @@
     </div>
 </div>
 {% endblock %}
-
 {% block hiddenforms %}
     {{ bankcard_form.as_p }}
     {{ billing_address_form.as_p }}

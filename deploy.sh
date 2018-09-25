@@ -12,4 +12,8 @@ git commit -m 'deploy'
 
 echo "yes" | python sandbox/manage.py collectstatic
 
-eb deploy
+echo "starting deployment"
+
+eb deploy bedswing-app
+
+echo "deployed"
