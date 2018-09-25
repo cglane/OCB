@@ -179,7 +179,7 @@ SHIPPING_RATES = { "AK" : 775,
                "WI": 550,
                "WV": 325,
                "WY": 550,
-                   "TE": 50}
+                }
 
 ONLY_CUSHIONS_DEDUCTION = 50
 SALES_TAX = '0.09'
