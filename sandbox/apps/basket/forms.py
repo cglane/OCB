@@ -176,7 +176,11 @@ class AddToBasketForm(forms.Form):
         Currently requires that a stock record exists for the children
         """
         choices = []
-        colors = [(x.id, x.title) for x in product.colors.all()]
+        colors = []
+        try:
+            colors = [(x.id, x.title) for x in product.colors.all()]
+        except:
+            pass
         disabled_values = []
         for child in product.children.all():
             # Build a description of the child, including any pertinent
