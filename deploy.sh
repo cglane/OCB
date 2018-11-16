@@ -8,7 +8,7 @@ set -e
 
 git add .
 
-git commit -m 'deploy'
+#git commit -m 'deploy'
 
 echo "yes" | python sandbox/manage.py collectstatic
 
