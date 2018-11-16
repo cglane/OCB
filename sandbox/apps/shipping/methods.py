@@ -53,9 +53,9 @@ class Standard(Base):
         if charge_excl_tax is not None:
             self.charge_excl_tax = charge_excl_tax
     def calculate(self, basket):
-        ###Only have prices for bedswing & cushions pair, charged for per bedswing
-        ###But still charged if they only buy cushions
-        ###If order only includes cushions reduce price by 50
+        ### Only have prices for bedswing & cushions pair, charged for per bedswing
+        ### But still charged if they only buy cushions
+        ### If order only includes cushions reduce price by 50
         product_types = [x.product.product_class.name for x in basket.lines.all()]
         deduction = getattr(settings, 'ONLY_CUSHIONS_DEDUCTION')
 
