@@ -18,7 +18,7 @@ cryptography==2.0.3
 decorator==4.1.2
 dill==0.2.7.1
 dj-stripe==1.0.0.post1
-Django==1.11.5
+Django==1.11.29
 django-appconf==1.0.2
 django-compressor==2.2
 django-cors-headers==2.1.0
