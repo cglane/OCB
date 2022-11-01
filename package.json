@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "~3.8.11",
+    "gulp": "~4.0.2",
     "gulp-autoprefixer": "~1.0.1",
     "gulp-less": "^3.0.5",
     "gulp-sourcemaps": "^1.6.0",
